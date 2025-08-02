@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color: #1e1e1e;
+  color: white;
+  font-family: monospace;
+}
+
+textarea, pre, button {
+  font-family: monospace;
+}

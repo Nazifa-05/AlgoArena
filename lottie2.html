@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real World Projects</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      flex-wrap: wrap;
+    }
+    .left {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right {
+      flex: 1;
+      min-width: 300px;
+    }
+    .right h2 {
+      color: #d22d2d;
+    }
+    .right h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .right ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .right ul li::before {
+      content: "✔️";
+      margin-right: 10px;
+    }
+    .get-button {
+      margin-top: 20px;
+      background: #3f6fff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    lottie-player {
+      max-width: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <!-- ✅ Real-world coding project animation -->
+      <lottie-player
+        src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay>
+      </lottie-player>
+    </div>
+
+    <div class="right">
+      <h2>Real World projects</h2>
+      <h1>Build Real World Projects</h1>
+      <p>Work on hands-on projects that reflect real industry challenges</p>
+      <ul>
+        <li>Solve real problems with projects.</li>
+        <li>Explore projects in full stack development and data science.</li>
+        <li>Gain practical, job-ready skills.</li>
+      </ul>
+      <button class="get-button">Get Started</button>
+    </div>
+  </div>
+
+</body>
+</html>

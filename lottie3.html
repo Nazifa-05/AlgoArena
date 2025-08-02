@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Contests</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+    }
+    .container h2 {
+      color: #28a745;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .container h1 {
+      font-size: 32px;
+      margin: 10px 0 20px;
+      color: #333;
+    }
+    .container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 20px;
+      max-width: 600px;
+      text-align: left;
+    }
+    .container ul li {
+      margin-bottom: 12px;
+      font-size: 18px;
+      position: relative;
+      padding-left: 28px;
+    }
+    .container ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: green;
+    }
+    .container button {
+      background-color: #3f6fff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    lottie-player {
+      max-width: 500px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    @media(min-width: 768px) {
+      .container {
+        flex-direction: row;
+        text-align: left;
+      }
+      .left, .right {
+        flex: 1;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="right">
+    <!-- New working leaderboard Lottie -->
+    <lottie-player 
+      src="https://assets4.lottiefiles.com/packages/lf20_cugnxbxp.json" 
+      background="transparent" 
+      speed="1" 
+      loop 
+      autoplay>
+    </lottie-player>
+  </div>
+  <div class="left">
+    <h2>Coding Contests</h2>
+    <h1>Compete. Win. Level Up.</h1>
+    <ul>
+      <li>Take part in challenges across college, national & global levels.</li>
+      <li>Track your rise on the leaderboard.</li>
+      <li>Earn prizes, internships, and certificates.</li>
+    </ul>
+    <button>Start Competing</button>
+  </div>
+</div>
+
+</body>
+</html>
