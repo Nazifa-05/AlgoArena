@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 
-function App() {
+function Compiler() {
   const [code, setCode] = useState("// write your code here");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
@@ -15,13 +15,13 @@ function App() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-RapidAPI-Key": "59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af", // 🔐 <-- Replace this
+            "X-RapidAPI-Key": process.env.REACT_APP_JUDGE_59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af,
             "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
           },
           body: JSON.stringify({
             source_code: code,
             stdin: input,
-            language_id: 54, // C++ (GCC 9.2.0)
+            language_id: 54, // C++
           }),
         }
       );
@@ -30,7 +30,7 @@ function App() {
       setOutput(data.stdout || data.stderr || data.compile_output || "No output");
     } catch (error) {
       console.error(error);
-      setOutput("Something went wrong while running your code.");
+      setOutput("Error: Failed to run code.");
     }
   };
 
@@ -44,7 +44,7 @@ function App() {
         fontFamily: "monospace",
       }}
     >
-      {/* Left: Code Editor */}
+      {/* Left: Editor */}
       <div style={{ width: "70%", padding: "20px" }}>
         <h2>Online Compiler</h2>
         <Editor
@@ -56,7 +56,7 @@ function App() {
         />
       </div>
 
-      {/* Right: Input / Run / Output */}
+      {/* Right: Input/Output */}
       <div style={{ width: "30%", padding: "20px", backgroundColor: "#111" }}>
         <h3>Enter Input</h3>
         <textarea
@@ -105,4 +105,4 @@ function App() {
   );
 }
 
-export default App;
+export default Compiler;
