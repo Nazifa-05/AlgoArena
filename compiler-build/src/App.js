@@ -7,32 +7,31 @@ function Compiler() {
   const [output, setOutput] = useState("");
 
   const handleRun = async () => {
+  try {
     setOutput("Running...");
-    try {
-      const response = await fetch(
-        "https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-RapidAPI-Key": process.env.REACT_APP_JUDGE_59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af,
-            "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
-          },
-          body: JSON.stringify({
-            source_code: code,
-            stdin: input,
-            language_id: 54, // C++
-          }),
-        }
-      );
 
-      const data = await response.json();
-      setOutput(data.stdout || data.stderr || data.compile_output || "No output");
-    } catch (error) {
-      console.error(error);
-      setOutput("Error: Failed to run code.");
-    }
-  };
+    const response = await fetch("https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-RapidAPI-Key": "59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af", // Replace this
+        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com"
+      },
+      body: JSON.stringify({
+        source_code: code,
+        stdin: input,
+        language_id: 54 // 54 is for C++ (GCC 9.2.0)
+      })
+    });
+
+     const data = await response.json();
+    setOutput(data.stdout || data.stderr || data.compile_output || "No output");
+  } catch (error) {
+    console.error(error);
+    setOutput("Error occurred while running code.");
+  }
+};
+
 
   return (
     <div
