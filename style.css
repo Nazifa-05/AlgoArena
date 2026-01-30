@@ -20,8 +20,8 @@
       top: 0; left: 0; right: 0; bottom: 0;
       pointer-events: none;
       background-image: repeating-radial-gradient(circle at center,
-        rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
-        repeating-linear-gradient(0deg, transparent 0, transparent 19px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 21px);
+      rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+      repeating-linear-gradient(0deg, transparent 0, transparent 19px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 21px);
       background-blend-mode: screen;
       z-index: 0;
     }
@@ -64,26 +64,7 @@
       
     }
 
-   .nude1 {
-  background-color: transparent; /* set transparent to use overlay */
-  color: #000000;
-  position: relative;
-  z-index: 2;
-  
-
-}
-
-.nude1::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #A3BCCF; /* your green background */
-  z-index: -1; /* put background BEHIND the text */
-  min-height: 400px;
-  padding: 100px 24px;
-  margin-bottom: 20px;
-}
-
+ 
 /* nude2 */
 .nude2 {
   position: relative;
@@ -95,6 +76,25 @@
   overflow: hidden;
 }
 
+.nude2 {
+  display: flex;
+  flex-direction: column;   
+  align-items: center;      
+  justify-content: center;  
+  text-align: center;       
+  padding: 10px 20px;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.nude2 p {
+  margin: 0;  
+  line-height: 1.0;
+  font-family: Monarque;
+  font-size: 30px;
+}
+
 .nude2::before {
   content: "";
   position: absolute;
@@ -102,7 +102,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #A3BCCF;
+  background-color: #E0F2FC;
   z-index: -1;
 }
 
@@ -115,6 +115,7 @@
   margin-bottom: 20px;
   color: #000;
   overflow: hidden;
+  background-color: #E0F2FC;
 }
 
 .nude3::before {
@@ -124,7 +125,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #A3BCCF; /* Solid sky-blue */
+  background-color: #E0F2FC; /* Solid sky-blue */
   z-index: -1;
 }
 
@@ -157,6 +158,69 @@
 }
 
 /* Nude section-1 */
+
+  .nude1 {
+  background-color: transparent; /* set transparent to use overlay */
+  color: #000000;
+  position: relative;
+  z-index: 2;
+}
+
+.nude-section.nude1{
+  margin: 0 auto;
+  padding: 40px 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nude-section.nude1 {
+  padding: 40px 5%;   /* ✅ adds space left & right */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-align {
+  flex: 1;
+  min-width: 300px;
+  text-align: left; /* ✅ This ensures all text is left-aligned */
+}
+
+ @media (max-width: 992px) {
+  .nude-section.nude1 {
+    flex-direction: column;
+    align-items: stretch; /* takes full width */
+  }
+
+  .right-section {
+    margin-right: 0;      /* remove right gap on mobile */
+    max-width: 100%;      /* take full width */
+  }
+
+  .left-align {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+
+.nude1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #C6DEF6; /* your green background */
+  z-index: -1; /* put background BEHIND the text */
+  min-height: 400px;
+  padding: 100px 24px;
+  margin-bottom: 20px;
+}
+
+
    .left-align {
   text-align: left;
   max-width: 600px;     /* Limits content width */
@@ -164,21 +228,17 @@
   margin-bottom: 40px;
 }
 
-.page-layout {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 30px;
-  padding: 40px;
-  background-color: #a6bfd2;
-}
+
 /* RIGHT SECTION starts here */
     .right-section {
-      width: 750px;
       background: white;
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      max-width: 750px;
+      margin-right: 15px;
+      margin-left: 10px;
     }
 
     .cert-info {
@@ -405,7 +465,7 @@
       min-width: 300px;
     }
     .left h2 {
-      color: green;
+      color: rgb(138, 179, 138);
     }
     .left h1 {
       font-size: 26px;
@@ -498,6 +558,24 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+.nude6 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  min-height: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.nude6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #C1E2F5;
+  z-index: -1;
+}
 
 
 .container, .nude-section {
@@ -521,16 +599,16 @@
 .intro h2 {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #6366f1;
+  color: #08093e;
 }
 
 .intro h2 span {
-  color: #6366f1;
+  color: #08093e;
 }
 
 .intro p {
   font-size: 18px;
-  color: #b4b4b4;
+  color: #2d2c2c;
   margin-bottom: 30px;
 }
 
@@ -610,11 +688,25 @@
 
 /*nude7 */
 .testimonials-section {
-  background-color: #f6f9ff;
+  background-color: #FCDEE0;
   padding: 60px 20px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
+  z-index: 10;
+  overflow: hidden;
+  position: relative;
 }
+.testimonials-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FCDEE0;
+  z-index: -1;
+}
+
 
 .testimonials-header h3 {
   font-size: 18px;
@@ -708,10 +800,23 @@
 
 /* nude 8*/
 .stats-section {
-  background: #f7faff;
+  background: #FCDEE0;
   padding: 60px 20px;
   text-align: center;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FCDEE0;
+  z-index: -1;
 }
 
 .rating-box {
@@ -929,10 +1034,23 @@
 /* nude 10*/
 
 .courses-section {
-  background: #f9f9f9;
+  background: #C6DEF6;
   padding: 60px 30px;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+.courses-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #C6DEF6;
+  z-index: -1;
 }
 
 /* Heading styles */
@@ -943,9 +1061,10 @@
 }
 
 .courses-header p {
-  font-size: 1rem;
-  color: #777;
+  font-size: 2rem;
+  color: #330c3e;
   margin-bottom: 40px;
+  font-family: Monarque;
 }
 
 /* Grid styling */
@@ -964,7 +1083,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #333;
   transition: all 0.3s ease;
   cursor: default;
@@ -1082,7 +1201,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #A3BCCF;
+  background-color: #E1D0E3;
   z-index: -1;
 }
 
@@ -1277,6 +1396,20 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  background-color: #D6EEEC;
+}
+.nude2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #D6EEEC;
+  z-index: -1;
 }
 
 .nude13-right {
@@ -1366,9 +1499,13 @@
   flex-wrap: wrap;
 }
 
+
+
+
 .nude14-text {
   flex: 1;
   min-width: 300px;
+  margin-left: 5px;
 }
 
 .nude14-badge {
@@ -1392,7 +1529,7 @@
 }
 
 .nude14-text p {
-  font-size: 16px;
+  font-size: 18px;
   color: #444;
   line-height: 1.6;
   margin-bottom: 24px;
@@ -1440,9 +1577,84 @@
   }
 }
 
+/*Nude 15 section*/
 
-/* Nude 15 copyright section */
-.nude-section.nude15 {
+/* Section Styling */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 70px 10%;
+  background: linear-gradient(180deg, #f8faff, #e8f0ff);
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  color: #2962ff; /* highlight AlgoArena */
+}
+
+.hero-text p {
+  font-size: 2.15rem;
+  color: #444;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #2962ff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0039cb;
+}
+
+.hero-image {
+  max-width: 40%;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .hero-image {
+    max-width: 70%;
+  }
+}
+
+/* Nude 16 copyright section */
+.nude-section.nude16 {
   background-color: #0e1c36;
   color: #fff;
   font-family: "Segoe UI", sans-serif;

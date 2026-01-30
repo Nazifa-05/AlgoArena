@@ -1,5 +1,5 @@
 {
-  "name": "online-code-runner",
+  "name": "online-compiler",
   "version": "1.0.0",
   "private": true,
   "homepage": "https://Nazifa-05.github.io/AlgoArena",
@@ -9,7 +9,6 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "gh-pages": "^6.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.7.1",
@@ -32,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
