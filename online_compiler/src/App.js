@@ -12,6 +12,39 @@ const languageOptions = {
   web: { name: "Web Project (HTML+CSS+JS+JQuery)", id: null, monacoLang: null },
 };
 
+const codeTemplates = {
+  c: `#include <stdio.h>
+
+int main() {
+    printf("Hello World");
+    return 0;
+}`,
+
+  cpp: `#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World";
+    return 0;
+}`,
+
+  python: `print("Hello World")`,
+
+  java: `public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}`,
+
+  javascript: `console.log("Hello World");`,
+
+  html: `<h1>Hello World</h1>`,
+
+  css: `h1 {
+  color: red;
+}`,
+};
+
 function Compiler() {
   const [mode, setMode] = useState("cpp");
   const [code, setCode] = useState("// write your code here");
@@ -133,7 +166,14 @@ function Compiler() {
 
         <select
           value={mode}
-          onChange={(e) => setMode(e.target.value)}
+          onChange={(e) => {
+            const selectedMode = e.target.value;
+            setMode(selectedMode);
+
+            if (codeTemplates[selectedMode]) {
+              setCode(codeTemplates[selectedMode]);
+            }
+          }}
           style={{ marginBottom: "10px", padding: "6px", fontSize: "16px" }}
         >
           {Object.entries(languageOptions).map(([key, lang]) => (
