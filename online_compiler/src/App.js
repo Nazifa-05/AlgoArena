@@ -83,7 +83,16 @@ function Compiler() {
   };
 
   const handleRun = () => {
+    if (
+      (mode !== "web" && !code.trim()) ||
+      (mode === "web" && !htmlCode.trim() && !cssCode.trim() && !jsCode.trim())
+    ) {
+      setOutput("Please enter code before execution.");
+      return;
+    }
+
     const lang = languageOptions[mode];
+
     if (lang.id === null) {
       runRenderedCode();
     } else {
