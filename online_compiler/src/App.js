@@ -32,7 +32,8 @@ function Compiler() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-RapidAPI-Key": "59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af", // 🔑 ADD YOUR API KEY HERE
+            "X-RapidAPI-Key":
+              "59a5f341f4msh78188f3a3df3fa4p1774afjsnc721ccca70af", // 🔑 ADD YOUR API KEY HERE
             "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
           },
           body: JSON.stringify({
@@ -40,11 +41,13 @@ function Compiler() {
             stdin: input,
             language_id: lang.id,
           }),
-        }
+        },
       );
 
       const data = await response.json();
-      setOutput(data.stdout || data.stderr || data.compile_output || "No output");
+      setOutput(
+        data.stdout || data.stderr || data.compile_output || "No output",
+      );
     } catch (err) {
       console.error(err);
       setOutput("Error: Failed to run code.");
@@ -88,6 +91,15 @@ function Compiler() {
     }
   };
 
+  const copyOutput = async () => {
+    try {
+      await navigator.clipboard.writeText(output);
+      alert("Output copied successfully!");
+    } catch (err) {
+      alert("Failed to copy output");
+    }
+  };
+
   return (
     <div
       style={{
@@ -117,11 +129,29 @@ function Compiler() {
         {mode === "web" ? (
           <>
             <h4>HTML</h4>
-            <Editor height="20vh" language="html" theme="vs-dark" value={htmlCode} onChange={(v) => setHtmlCode(v || "")} />
+            <Editor
+              height="20vh"
+              language="html"
+              theme="vs-dark"
+              value={htmlCode}
+              onChange={(v) => setHtmlCode(v || "")}
+            />
             <h4>CSS</h4>
-            <Editor height="20vh" language="css" theme="vs-dark" value={cssCode} onChange={(v) => setCssCode(v || "")} />
+            <Editor
+              height="20vh"
+              language="css"
+              theme="vs-dark"
+              value={cssCode}
+              onChange={(v) => setCssCode(v || "")}
+            />
             <h4>JavaScript</h4>
-            <Editor height="20vh" language="javascript" theme="vs-dark" value={jsCode} onChange={(v) => setJsCode(v || "")} />
+            <Editor
+              height="20vh"
+              language="javascript"
+              theme="vs-dark"
+              value={jsCode}
+              onChange={(v) => setJsCode(v || "")}
+            />
           </>
         ) : (
           <Editor
@@ -170,7 +200,30 @@ function Compiler() {
           Run
         </button>
 
-        <h3 style={{ marginTop: "20px" }}>Output</h3>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <h3>Output</h3>
+
+          <button
+            onClick={copyOutput}
+            style={{
+              padding: "5px 10px",
+              backgroundColor: "#28a745",
+              border: "none",
+              color: "#fff",
+              cursor: "pointer",
+              borderRadius: "4px",
+            }}
+          >
+            Copy Output
+          </button>
+        </div>
         <div
           style={{
             backgroundColor: "#fff",
@@ -179,14 +232,25 @@ function Compiler() {
             border: "1px solid #333",
           }}
         >
-          {(mode === "html" || mode === "css" || mode === "javascript" || mode === "web") ? (
+          {mode === "html" ||
+          mode === "css" ||
+          mode === "javascript" ||
+          mode === "web" ? (
             <iframe
               srcDoc={output}
               style={{ width: "100%", height: "100%", border: "none" }}
               title="Output"
             />
           ) : (
-            <pre style={{ backgroundColor: "#000", color: "#0f0", padding: "10px" }}>{output}</pre>
+            <pre
+              style={{
+                backgroundColor: "#000",
+                color: "#0f0",
+                padding: "10px",
+              }}
+            >
+              {output}
+            </pre>
           )}
         </div>
       </div>
