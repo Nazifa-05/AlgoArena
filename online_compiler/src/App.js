@@ -113,6 +113,10 @@ function Compiler() {
     }
   };
 
+  const clearOutput = () => {
+    setOutput("");
+  };
+
   return (
     <div
       style={{
@@ -236,6 +240,21 @@ function Compiler() {
             }}
           >
             Copy Output
+          </button>
+
+          <button
+            onClick={clearOutput}
+            style={{
+              padding: "5px 10px",
+              backgroundColor: "#dc3545",
+              border: "none",
+              color: "#fff",
+              cursor: "pointer",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+          >
+            Clear Output
           </button>
         </div>
         <div
