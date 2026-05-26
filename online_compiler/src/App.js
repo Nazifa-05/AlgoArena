@@ -20,8 +20,10 @@ function Compiler() {
   const [jsCode, setJsCode] = useState("console.log('Hello!');");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [isRunning, setIsRunning] = useState(false);
 
   const runCompiledCode = async () => {
+    setIsRunning(true);
     setOutput("Running...");
     const lang = languageOptions[mode];
 
@@ -51,6 +53,8 @@ function Compiler() {
     } catch (err) {
       console.error(err);
       setOutput("Error: Failed to run code.");
+    } finally {
+      setIsRunning(false);
     }
   };
 
@@ -197,16 +201,17 @@ function Compiler() {
 
         <button
           onClick={handleRun}
+          disabled={isRunning}
           style={{
             marginTop: "10px",
             padding: "10px 20px",
-            backgroundColor: "#007bff",
+            backgroundColor: isRunning ? "#666" : "#007bff",
             border: "none",
             color: "#fff",
-            cursor: "pointer",
+            cursor: isRunning ? "not-allowed" : "pointer",
           }}
         >
-          Run
+          {isRunning ? "Running..." : "Run"}
         </button>
 
         <div
