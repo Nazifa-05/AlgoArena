@@ -211,13 +211,25 @@ function Compiler() {
             />
           </>
         ) : (
-          <Editor
-            height="75vh"
-            language={languageOptions[mode].monacoLang}
-            theme="vs-dark"
-            value={code}
-            onChange={(value) => setCode(value || "")}
-          />
+          <>
+            <Editor
+              height="75vh"
+              language={languageOptions[mode].monacoLang}
+              theme="vs-dark"
+              value={code}
+              onChange={(value) => setCode(value || "")}
+            />
+
+            <div
+              style={{
+                marginTop: "10px",
+                color: "#ccc",
+                fontSize: "14px",
+              }}
+            >
+              Lines: {code.split("\n").length} | Characters: {code.length}
+            </div>
+          </>
         )}
       </div>
 
