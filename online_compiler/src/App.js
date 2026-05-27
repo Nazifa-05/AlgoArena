@@ -53,6 +53,7 @@ function Compiler() {
   const [jsCode, setJsCode] = useState("console.log('Hello!');");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [lastRun, setLastRun] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
@@ -102,6 +103,7 @@ function Compiler() {
       setOutput(
         data.stdout || data.stderr || data.compile_output || "No output",
       );
+      setLastRun(new Date().toLocaleString());
     } catch (err) {
       console.error(err);
       setOutput("Error: Failed to run code.");
@@ -136,6 +138,7 @@ function Compiler() {
     }
 
     setOutput(content);
+    setLastRun(new Date().toLocaleString());
   };
 
   const handleRun = () => {
@@ -302,6 +305,11 @@ function Compiler() {
           }}
         >
           <h3>Output</h3>
+          {lastRun && (
+            <p style={{ color: "#aaa", fontSize: "12px" }}>
+              Last Run: {lastRun}
+            </p>
+          )}
 
           <button
             onClick={copyOutput}
