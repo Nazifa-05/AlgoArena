@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 
 const languageOptions = {
@@ -55,6 +55,25 @@ function Compiler() {
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.key === "Enter") {
+        event.preventDefault();
+
+        if (languageOptions[mode].id !== null) {
+          runCompiledCode();
+        } else {
+          runRenderedCode();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mode, code, htmlCode, cssCode, jsCode, input]);
   const runCompiledCode = async () => {
     setIsRunning(true);
     setOutput("Running...");
