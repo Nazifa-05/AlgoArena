@@ -149,7 +149,11 @@ function Compiler() {
   const clearOutput = () => {
     setOutput("");
   };
-
+  const resetCode = () => {
+    if (codeTemplates[mode]) {
+      setCode(codeTemplates[mode]);
+    }
+  };
   return (
     <div
       style={{
@@ -307,6 +311,21 @@ function Compiler() {
             }}
           >
             Clear Output
+          </button>
+
+          <button
+            onClick={resetCode}
+            style={{
+              padding: "5px 10px",
+              backgroundColor: "#ffc107",
+              border: "none",
+              color: "#000",
+              cursor: "pointer",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+          >
+            Reset Code
           </button>
         </div>
         <div
