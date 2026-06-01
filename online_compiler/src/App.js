@@ -57,6 +57,18 @@ function Compiler() {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
+    const savedCode = localStorage.getItem("savedCode");
+
+    if (savedCode) {
+      setCode(savedCode);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("savedCode", code);
+  }, [code]);
+
+  useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === "Enter") {
         event.preventDefault();
