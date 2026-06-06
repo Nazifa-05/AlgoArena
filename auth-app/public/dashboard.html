@@ -43,7 +43,11 @@ a:hover {
 </style>
 </head>
 <body>
-  <h2>Welcome to your dashboard!</h2>
-  <a href="/logout">Logout</a>
+  <h1>Welcome to your dashboard!</h1>
+
+  <script>
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "http://localhost:3001/AlgoArena";
+  </script>
 </body>
 </html>
